@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GuessTheNumberConsoleGame.Models.Levels.Interfaces;
 
-namespace GuessTheNumberConsoleGame.Models.Levels.Interfaces
+namespace GuessTheNumberConsoleGame.Models.Levels
 {
 
     abstract class Level : ILevel
     {
-        private const int maxValue = int.MaxValue;
-       // private const int minValue = 0;
         public Level(int max)
         {
             MaxValue = max;
@@ -22,29 +21,27 @@ namespace GuessTheNumberConsoleGame.Models.Levels.Interfaces
             throw new NotImplementedException();
         }
 
-        public virtual void PlayTheLevel()
+        public void PlayTheLevel()
         {
             Random random = new Random();
 
             int randomNumber = random.Next(0, MaxValue);
 
+            Console.WriteLine($"Please enter number between 0 and {MaxValue}");
             int numberSugestion = int.Parse(Console.ReadLine());
 
             int tryCount = 1;
 
-            /*string command = Console.ReadLine();
-
-            while (command != "End")
-            {
-
-                if (command == "Start")
-                {
-
-                }
-            }*/
-
             while (randomNumber != numberSugestion)
             {
+                if (numberSugestion > MaxValue || numberSugestion < 0)
+                {
+                    Console.WriteLine($"number must be between 0 and {MaxValue}");
+                    Console.WriteLine("Please enter valid number");
+                    numberSugestion = int.Parse(Console.ReadLine());
+
+                    continue;
+                }
                 if (numberSugestion > randomNumber)
                 {
                     Console.WriteLine($"{numberSugestion} is high! Try with lower number");
@@ -58,11 +55,10 @@ namespace GuessTheNumberConsoleGame.Models.Levels.Interfaces
                 numberSugestion = int.Parse(Console.ReadLine());
             }
             Console.Clear();
-            //Console.Beep();
-            //Console.WriteLine($"Congrats!!! You guesed the number from the {tryCount} times");
 
             for (int i = 0; i < 10; i++)
             {
+
                 Console.Clear();
                 if (i % 2 == 0)
                 {
@@ -74,7 +70,7 @@ namespace GuessTheNumberConsoleGame.Models.Levels.Interfaces
                 }
 
                 Console.Beep();
-                Console.WriteLine($"Congrats!!! You guesed the number from the {tryCount} times");
+                Console.WriteLine($"Congrats!!! You guesed the number on the {tryCount} try");
             }
 
         }

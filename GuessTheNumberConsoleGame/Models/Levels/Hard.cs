@@ -1,5 +1,4 @@
-﻿using GuessTheNumberConsoleGame.Models.Levels.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +12,7 @@ namespace GuessTheNumberConsoleGame.Models.Levels
 
         public Hard() : base(maxValue)
         {
-        }
 
-        public override void PlayTheLevel()
-        {
-            base.PlayTheLevel();
-        }
+        }      
     }
 }

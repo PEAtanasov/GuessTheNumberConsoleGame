@@ -1,5 +1,4 @@
-﻿using GuessTheNumberConsoleGame.Models.Levels.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +8,10 @@ namespace GuessTheNumberConsoleGame.Models.Levels
 {
     internal class Easy : Level
     {
-        private const int minValue = 0;
-        public override void PlayTheLevel()
+        private const int maxValue = 10;
+
+        public Easy() : base(maxValue)
         {
-            throw new NotImplementedException();
         }
     }
 }
