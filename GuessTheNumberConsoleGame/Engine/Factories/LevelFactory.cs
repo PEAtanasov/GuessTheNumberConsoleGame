@@ -12,7 +12,7 @@ namespace GuessTheNumberConsoleGame.Engine.Factories
     {
         public ILevel CreateLevel(string LevelDificulty)
         {
-            ILevel level=null;
+            ILevel level;
             if (LevelDificulty=="Easy")
             {
                 level = new Easy();
@@ -28,6 +28,10 @@ namespace GuessTheNumberConsoleGame.Engine.Factories
             else if (LevelDificulty == "Expert")
             {
                 level = new Expert();
+            }
+            else
+            {
+                level= new Expert();
             }
 
             return level;

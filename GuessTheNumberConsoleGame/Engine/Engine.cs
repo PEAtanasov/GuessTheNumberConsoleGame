@@ -1,11 +1,6 @@
 ﻿using GuessTheNumberConsoleGame.Engine.Factories;
 using GuessTheNumberConsoleGame.Models.Levels;
 using GuessTheNumberConsoleGame.Models.Levels.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GuessTheNumberConsoleGame.Engine
 {
